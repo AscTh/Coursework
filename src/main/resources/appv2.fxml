@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="572.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sample.SidePanelController">
+    <AnchorPane fx:id="anchorPane" layoutY="34.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="34.0">
+        <JFXTabPane fx:id="tabpane" style="-fx-background-color: #222430;" stylesheets="@tabpane.css" tabClosingPolicy="UNAVAILABLE" tabMinHeight="34.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Tab text="Главная">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <ImageView accessibleRole="NODE" fitHeight="515.0" fitWidth="910.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Image url="@icons/video.png" />
+                    </ImageView>
+                    <ImageView fitHeight="171.0" fitWidth="190.0" layoutX="707.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@icons/FF8080.png" />
+                        </image>
+                        <effect>
+                            <DropShadow />
+                        </effect>
+                    </ImageView>
+                    <Text fx:id="count_team" fill="#005377" layoutX="710.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" textAlignment="CENTER" wrappingWidth="165.99999713897705">
+                        <font>
+                            <Font size="64.0" />
+                        </font>
+                    </Text>
+                    <Text fill="#005377" layoutX="745.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Команд" wrappingWidth="94.826171875">
+                        <font>
+                            <Font size="24.0" />
+                        </font>
+                    </Text>
+                    <ImageView fitHeight="171.0" fitWidth="190.0" layoutX="520.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@icons/ff8541.png" />
+                        </image>
+                        <effect>
+                            <DropShadow />
+                        </effect>
+                    </ImageView>
+                    <Text fx:id="count_player" fill="#005377" layoutX="523.0" layoutY="106.0" nodeOrientation="LEFT_TO_RIGHT" textAlignment="CENTER" wrappingWidth="165.99999713897705">
+                        <font>
+                            <Font size="64.0" />
+                        </font>
+                    </Text>
+                    <Text fill="#005377" layoutX="558.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Игроков" wrappingWidth="94.826171875">
+                        <font>
+                            <Font size="24.0" />
+                        </font>
+                    </Text>
+                    <TableView fx:id="tableView_goal" layoutX="20.0" layoutY="24.0" prefHeight="456.0" prefWidth="480.0">
+                        <columns>
+                            <TableColumn fx:id="name_goals" prefWidth="160.0" text="Игрок" />
+                            <TableColumn fx:id="goal" prefWidth="100.0" text="Голы" />
+                            <TableColumn fx:id="coeff" prefWidth="120.0" text="Коэффициент" />
+                            <TableColumn fx:id="point" prefWidth="100.0" text="Очков" />
+                        </columns>
+                    </TableView>
+                </AnchorPane>
+            </Tab>
+        </JFXTabPane>
+        <AnchorPane prefHeight="560.0" prefWidth="190.0" style="-fx-background-color: #507299;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ImageView fitHeight="88.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <Image url="@icons/bottom_font.png" />
+            </ImageView>
+            <JFXButton fx:id="btn_team" alignment="BASELINE_LEFT" buttonType="RAISED" layoutY="88.0" onAction="#btn_team" prefHeight="60.0" prefWidth="190.0" text="Команды" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@icons/icons8-user-groups-50.png" />
+                    </ImageView>
+                </graphic>
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </JFXButton>
+            <JFXButton fx:id="btn_player" alignment="BASELINE_LEFT" buttonType="RAISED" layoutY="149.0" onAction="#btn_player" prefHeight="60.0" prefWidth="190.0" ripplerFill="#2d98c6" text="Игроки" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@icons/icons8-user-account-50.png" />
+                    </ImageView>
+                </graphic>
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </JFXButton>
+            <JFXButton fx:id="btn_adding" alignment="BASELINE_LEFT" buttonType="RAISED" layoutY="209.0" onAction="#btn_adding" prefHeight="60.0" prefWidth="190.0" ripplerFill="#2d98c6" text="Добавление" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@icons/icons8-add-50.png" />
+                    </ImageView>
+                </graphic>
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </JFXButton>
+            <JFXButton fx:id="btn_close" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btn_close" prefHeight="60.0" prefWidth="190.0" ripplerFill="#2d98c6" text="Выход" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@icons/icons8-exit-50.png" />
+                    </ImageView>
+                </graphic>
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </JFXButton>
+            <effect>
+                <DropShadow />
+            </effect>
+        </AnchorPane>
+    </AnchorPane>
+    <AnchorPane onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="34.0" prefWidth="900.0" style="-fx-background-color: #507299;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <ImageView fitHeight="34.0" fitWidth="230.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@icons/top_font.png" />
+        </ImageView>
+        <JFXButton onAction="#min" prefHeight="34.0" prefWidth="40.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="0.0">
+            <graphic>
+                <ImageView fitHeight="15.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@icons/icons8-subtract-24.png" />
+                </ImageView>
+            </graphic>
+        </JFXButton>
+        <JFXButton onAction="#max" prefHeight="34.0" prefWidth="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
+            <graphic>
+                <ImageView fitHeight="15.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@icons/icons8-unchecked-checkbox-32.png" />
+                </ImageView>
+            </graphic>
+        </JFXButton>
+        <JFXButton onAction="#exit" prefHeight="34.0" prefWidth="40.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <graphic>
+                <ImageView fitHeight="18.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@icons/icons8-delete-32.png" />
+                </ImageView>
+            </graphic>
+        </JFXButton>
+    </AnchorPane>
+</AnchorPane>

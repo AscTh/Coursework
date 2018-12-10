@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.AddManager">
+    <AnchorPane id="AnchorPane" fx:id="mainContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="910.0" style="-fx-background-color: #222430;">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="334.0" layoutY="42.0" text="Создание нового менеджера" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+        <JFXTextField fx:id="add_name" focusColor="WHITE" labelFloat="true" layoutX="310.0" layoutY="109.0" prefHeight="25.0" prefWidth="290.0" promptText="Имя" style="-fx-prompt-text-fill: #52dee5; -fx-text-fill: white;" unFocusColor="#52dee5" AnchorPane.topAnchor="100.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="add_login" focusColor="WHITE" labelFloat="true" layoutX="310.0" layoutY="194.0" prefHeight="25.0" prefWidth="290.0" promptText="Логин" style="-fx-prompt-text-fill: #52dee5; -fx-text-fill: white;" unFocusColor="#52dee5" AnchorPane.topAnchor="180.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="add_password" focusColor="WHITE" labelFloat="true" layoutX="310.0" layoutY="269.0" prefHeight="25.0" prefWidth="290.0" promptText="Пароль" style="-fx-prompt-text-fill: #52dee5; -fx-text-fill: white;" unFocusColor="#52dee5" AnchorPane.topAnchor="260.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </JFXTextField>
+        <JFXButton fx:id="btn_save" layoutX="355.0" layoutY="350.0" onAction="#addManager" prefHeight="37.0" prefWidth="200.0" style="-fx-background-color: #f44336;" text="Сохранить" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </JFXButton>
+    </AnchorPane>
+</StackPane>
