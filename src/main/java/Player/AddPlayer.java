@@ -3,7 +3,6 @@ package Player;
 import Alert.AlertMaker;
 import Data.DatabaseHandler;
 import Sample.SidePanelController;
-import Player.TablePlayerController.Player;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -128,7 +127,7 @@ public class AddPlayer extends SidePanelController implements Initializable {
         }*/
     }
 
-    void infalteUI(Player player) {
+    void inflateUI(Player player) {
         name.setText(player.getName());
         height.setText(String.valueOf(player.getHeight()));
         weight.setText(String.valueOf(player.getWeight()));
@@ -145,7 +144,7 @@ public class AddPlayer extends SidePanelController implements Initializable {
         if (DatabaseHandler.getInstance().updateMember(player, ID_player())) {
             AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Success", "Member data updated.");
         } else {
-            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Failed", "Cant update member.");
+            AlertMaker.showMaterialDialog(rootPane, mainContainer, new ArrayList<>(), "Failed", "Can't update member.");
         }
     }
 }

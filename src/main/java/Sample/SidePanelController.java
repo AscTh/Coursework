@@ -32,7 +32,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class SidePanelController extends LoginController implements Initializable, BookReturnCallback {
+public class SidePanelController extends LoginController implements Initializable {
     @FXML
     public AnchorPane anchorPane;
     @FXML
@@ -191,10 +191,6 @@ public class SidePanelController extends LoginController implements Initializabl
         app_stage.hide();
         app_stage.setScene(login_page_scene);
         app_stage.show();
-    }
-
-    @Override
-    public void loadBookReturn(String bookID) {
     }
 
     public static class Goal {

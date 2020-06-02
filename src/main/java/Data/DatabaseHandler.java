@@ -1,7 +1,6 @@
 package Data;
 
-import Player.TablePlayerController;
-import Player.TablePlayerController.Player;
+import Player.Player;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -39,7 +38,7 @@ public final class DatabaseHandler {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
             Locale.setDefault(Locale.ENGLISH);
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "USER007", "1234");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "USER007", "1111");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,7 +51,6 @@ public final class DatabaseHandler {
             result = stmt.executeQuery(query);
         } catch (SQLException ex) {
             ex.printStackTrace();
-//            System.out.println("Exception at execQuery:dataHandler" + ex.getLocalizedMessage());
             return null;
         }
         return result;

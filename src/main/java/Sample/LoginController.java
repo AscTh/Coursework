@@ -43,7 +43,6 @@ public class LoginController implements Initializable {
         LoginController.BTN_CLICK = BTN_CLICK;
     }
 
-
     private double x, y;
 
     @FXML
@@ -79,10 +78,11 @@ public class LoginController implements Initializable {
     @FXML
     public void okBtnAction(ActionEvent event) throws IOException, SQLException {
         DatabaseHandler handler = DatabaseHandler.getInstance();
-        String nam = name.getText(), pass = password.getText();
+        String nam = name.getText();
+        String pass = password.getText();
         ResultSet resultSet = handler.singUser(nam, pass);
         if (resultSet.next()) {
-            String sql_role = "SELECT ROLE FROM MANAGER WHERE LAST_NAME = " + nam + " AND PASSWORD = " + pass;
+            String sql_role = "SELECT ROLE FROM MANAGER WHERE LAST_NAME = '" + nam + "' AND PASSWORD = " + pass;
             ResultSet result = handler.execQuery(sql_role);
             while (result != null && result.next()) {
                 setBTN_CLICK(result.getInt("role"));
@@ -110,7 +110,5 @@ public class LoginController implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
+    public void initialize(URL location, ResourceBundle resources) {  }
 }

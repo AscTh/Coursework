@@ -19,20 +19,20 @@ import java.util.*;
 
 public class TableTeamController implements Initializable {
 
-    private ObservableList<Member> list = FXCollections.observableArrayList();
+    private ObservableList<Club> list = FXCollections.observableArrayList();
 
     @FXML
-    private TableView<Member> tableView;
+    private TableView<Club> tableView;
     @FXML
-    private TableColumn<Member, String> name;
+    private TableColumn<Club, String> name;
     @FXML
-    private TableColumn<Member, String> trainer;
+    private TableColumn<Club, String> trainer;
     @FXML
-    private TableColumn<Member, String> liga;
+    private TableColumn<Club, String> liga;
     @FXML
-    private TableColumn<Member, String> stadium;
+    private TableColumn<Club, String> stadium;
     @FXML
-    private TableColumn<Member, Float> rating;
+    private TableColumn<Club, Float> rating;
     @FXML
     private AnchorPane contentPane;
 
@@ -44,10 +44,10 @@ public class TableTeamController implements Initializable {
 
     private void initCol() {
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        trainer.setCellValueFactory(new PropertyValueFactory<>("id"));
-        liga.setCellValueFactory(new PropertyValueFactory<>("mobile"));
-        stadium.setCellValueFactory(new PropertyValueFactory<>("email"));
-        rating.setCellValueFactory(new PropertyValueFactory<>("qwer"));
+        trainer.setCellValueFactory(new PropertyValueFactory<>("trainer"));
+        liga.setCellValueFactory(new PropertyValueFactory<>("liga"));
+        stadium.setCellValueFactory(new PropertyValueFactory<>("stadium"));
+        rating.setCellValueFactory(new PropertyValueFactory<>("rating"));
     }
 
     private void loadData() {
@@ -71,13 +71,13 @@ public class TableTeamController implements Initializable {
         ResultSet rs = handler.execQuery(qu);
         try {
             while (rs.next()) {
-                String id = rs.getString("NAME");
-                String first_name = rs.getString("TRAINER");
-                String last_name = rs.getString("CHAMPIONSHIP");
-                String password = rs.getString("STADIUM");
-                float qwer = rs.getFloat("RATING_UEFA");
+                String name = rs.getString("NAME");
+                String trainer = rs.getString("TRAINER");
+                String liga = rs.getString("CHAMPIONSHIP");
+                String stadium = rs.getString("STADIUM");
+                float rating = rs.getFloat("RATING_UEFA");
 
-                list.add(new Member(id, last_name, first_name, password, qwer));
+                list.add(new Club(name, trainer, liga, stadium, rating));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -86,40 +86,4 @@ public class TableTeamController implements Initializable {
         tableView.setItems(list);
     }
 
-    public static class Member {
-
-        private final SimpleStringProperty name;
-        private final SimpleStringProperty id;
-        private final SimpleStringProperty mobile;
-        private final SimpleStringProperty email;
-        private final SimpleFloatProperty qwer;
-
-        Member(String name, String id, String mobile, String email, float qwer) {
-            this.name = new SimpleStringProperty(name);
-            this.id = new SimpleStringProperty(id);
-            this.mobile = new SimpleStringProperty(mobile);
-            this.email = new SimpleStringProperty(email);
-            this.qwer = new SimpleFloatProperty(qwer);
-        }
-
-        public String getName() {
-            return name.get();
-        }
-
-        public String getId() {
-            return id.get();
-        }
-
-        public String getMobile() {
-            return mobile.get();
-        }
-
-        public String getEmail() {
-            return email.get();
-        }
-
-        public float getQwer() {
-            return qwer.get();
-        }
-    }
 }

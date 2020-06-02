@@ -12,7 +12,7 @@ public class DataHelper {
     public static boolean insertNewBook(Manager manager) {
         try {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
-                    "INSERT INTO MANAGER(ID, FIRST_NAME, LAST_NAME, PASSWORD) VALUES (MANAGER_SEQ.nextval, ?, ?, ?)");
+                    "INSERT INTO MANAGER(ID, FIRST_NAME, LAST_NAME, PASSWORD, ROLE, CLUB_ID) VALUES (MANAGER_SEQ.nextval, ?, ?, ?, ?, ?)");
             statement.setString(1, manager.getName());
             statement.setString(2, manager.getLogin());
             statement.setString(3, manager.getPassword());

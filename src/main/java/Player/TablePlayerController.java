@@ -3,9 +3,6 @@ package Player;
 import Alert.AlertMaker;
 import Data.DatabaseHandler;
 import com.jfoenix.controls.JFXTextField;
-import javafx.beans.property.SimpleFloatProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -82,7 +79,7 @@ public class TablePlayerController implements Initializable {
         list.clear();
 
         DatabaseHandler handler = DatabaseHandler.getInstance();
-        String qu = "SELECT player.name,\n" +
+        String qu = "SELECT player.name || ' ' || player.last_name   AS NAME,\n" +
                 "       player.height,\n" +
                 "       player.weight,\n" +
                 "       player.numder,\n" +
@@ -149,7 +146,7 @@ public class TablePlayerController implements Initializable {
             Parent parent = loader.load();
 
             AddPlayer controller = loader.getController();
-            controller.infalteUI(selectedForEdit);
+            controller.inflateUI(selectedForEdit);
 
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.initStyle(StageStyle.TRANSPARENT);
@@ -190,45 +187,4 @@ public class TablePlayerController implements Initializable {
         }
     }
 
-    public static class Player {
-        private final SimpleStringProperty name;
-        private final SimpleIntegerProperty height;
-        private final SimpleFloatProperty weight;
-        private final SimpleIntegerProperty number;
-        private final SimpleStringProperty role;
-        private final SimpleStringProperty team_name;
-
-        Player(String name, int height, float weight, int number, String role, String team_name) {
-            this.name = new SimpleStringProperty(name);
-            this.height = new SimpleIntegerProperty(height);
-            this.weight = new SimpleFloatProperty(weight);
-            this.number = new SimpleIntegerProperty(number);
-            this.role = new SimpleStringProperty(role);
-            this.team_name = new SimpleStringProperty(team_name);
-        }
-
-        public String getName() {
-            return name.get();
-        }
-
-        public int getHeight() {
-            return height.get();
-        }
-
-        public float getWeight() {
-            return weight.get();
-        }
-
-        public int getNumber() {
-            return number.get();
-        }
-
-        public String getRole() {
-            return role.get();
-        }
-
-        public String getTeam_name() {
-            return team_name.get();
-        }
-    }
 }
